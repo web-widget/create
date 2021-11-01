@@ -1,5 +1,5 @@
 {
-  "name": "<%= tagName %>",
+  "name": "<%= pkgName %>",
   "license": "MIT",
   "scripts": {
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""

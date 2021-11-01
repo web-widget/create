@@ -13,8 +13,8 @@ import { gatherMixins } from './gatherMixins.js';
  * Allows to control the data via command line
  *
  * example:
- * npm init @open-wc --type scaffold --scaffoldType app --tagName foo-bar --installDependencies false
- * npm init @open-wc --type upgrade --features linting demoing --tagName foo-bar --installDependencies false
+ * npm init @open-wc --type scaffold --scaffoldType app --pkgName foo-bar --installDependencies false
+ * npm init @open-wc --type upgrade --features linting demoing --pkgName foo-bar --installDependencies false
  */
 const optionDefinitions = [
   {
@@ -52,7 +52,7 @@ const optionDefinitions = [
     typeLabel: '{underline true|false}',
   },
   {
-    name: 'tagName',
+    name: 'pkgName',
     description: 'The tag name for the web component or app shell element',
     type: String,
     typeLabel: '{underline string}',
@@ -162,14 +162,14 @@ export const AppMixin = subclass =>
           ],
         },
         {
-          type: (prev, all) => (all.tagName ? null : 'text'),
-          name: 'tagName',
+          type: (prev, all) => (all.pkgName ? null : 'text'),
+          name: 'pkgName',
           message: (prev, all) =>
             `What is the tag name of your ${
               all.scaffoldType === 'app' ? 'app shell element' : 'web component'
             }?`,
-          validate: tagName =>
-            !/^([a-z])(?!.*[<>])(?=.*-).+$/.test(tagName)
+          validate: pkgName =>
+            !/^([a-z])(?!.*[<>])(?=.*-).+$/.test(pkgName)
               ? 'You need a minimum of two lowercase words separated by dashes (e.g. foo-bar)'
               : true,
         },
@@ -180,7 +180,7 @@ export const AppMixin = subclass =>
        *   type: 'scaffold',
        *   scaffoldType: 'wc',
        *   features: [ 'testing', 'building' ],
-       *   tagName: 'foo-bar',
+       *   pkgName: 'foo-bar',
        *   installDependencies: 'false'
        * }
        */

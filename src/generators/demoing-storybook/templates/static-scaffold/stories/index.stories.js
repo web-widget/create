@@ -1,9 +1,9 @@
 import { html } from 'lit';
-import '../<%= tagName %>.js';
+import '../<%= pkgName %>.js';
 
 export default {
   title: '<%= className %>',
-  component: '<%= tagName %>',
+  component: '<%= pkgName %>',
   argTypes: {
     title: { control: 'text' },
     counter: { control: 'number' },
@@ -13,13 +13,13 @@ export default {
 
 function Template({ title = 'Hello world', counter = 5, textColor, slot }) {
   return html`
-    <<%= tagName %>
-      style="--<%= tagName %>-text-color: ${textColor || 'black'}"
+    <<%= pkgName %>
+      style="--<%= pkgName %>-text-color: ${textColor || 'black'}"
       .title=${title}
       .counter=${counter}
     >
       ${slot}
-    </<%= tagName %>>
+    </<%= pkgName %>>
   `;
 }
 

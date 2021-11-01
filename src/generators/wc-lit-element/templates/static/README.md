@@ -1,21 +1,21 @@
-# \<<%= tagName %>>
+# \<<%= pkgName %>>
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
 ## Installation
 
 ```bash
-npm i <%= tagName %>
+npm i <%= pkgName %>
 ```
 
 ## Usage
 
 ```html
 <script type="module">
-  import '<%= tagName %>/<%= tagName %>.js';
+  import '<%= pkgName %>/<%= pkgName %>.js';
 </script>
 
-<<%= tagName %>></<%= tagName %>>
+<<%= pkgName %>></<%= pkgName %>>
 ```
 
 <%= featureReadmes %>

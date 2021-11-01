@@ -1,3 +1,3 @@
 import { <%= className %> } from './<%= className %>.js';
 
-window.customElements.define('<%= tagName %>', <%= className %>);
+window.customElements.define('<%= pkgName %>', <%= className %>);

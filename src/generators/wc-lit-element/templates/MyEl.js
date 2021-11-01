@@ -6,7 +6,7 @@ export class <%= className %> extends LitElement {
       :host {
         display: block;
         padding: 25px;
-        color: var(--<%= tagName %>-text-color, #000);
+        color: var(--<%= pkgName %>-text-color, #000);
       }
     `;
   }

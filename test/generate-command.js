@@ -9,7 +9,7 @@ export function generateCommand({ destinationPath = '.' } = {}) {
       --scaffoldType app \
       --features linting testing demoing building \
       --typescript false \
-      --tagName scaffold-app \
+      --pkgName scaffold-app \
       --writeToDisk true \
       --installDependencies false
   `;
