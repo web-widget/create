@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import '../<%= pkgName %>.js';
+import '../src/<%= pkgName %>.js';
 
 export default {
   title: '<%= className %>',

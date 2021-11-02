@@ -21,6 +21,7 @@ export default () => {
       {
         file: unpkg,
         name: libraryName,
+        exports: 'default',
         format: 'umd',
         sourcemap: true,
       },
@@ -36,6 +37,7 @@ export default () => {
       },
       {
         file: main,
+        exports: 'default',
         format: 'cjs',
         sourcemap: true,
       }
