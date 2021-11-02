@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
-import '../scaffold-widget.js';
+import '../src/scaffold-widget.js';
 
 describe('ScaffoldWidget', () => {
   it('has a default title "Hey there" and counter 5', async () => {
@@ -16,12 +16,6 @@ describe('ScaffoldWidget', () => {
     el.shadowRoot.querySelector('button').click();
 
     expect(el.counter).to.equal(6);
-  });
-
-  it('can override the title via attribute', async () => {
-    const el = await fixture(html`<scaffold-widget title="attribute title"></scaffold-widget>`);
-
-    expect(el.title).to.equal('attribute title');
   });
 
   it('passes the a11y audit', async () => {

@@ -1,0 +1,15 @@
+{
+  "main": "dist/cjs/<%= pkgName %>.widget.js",
+  "module": "dist/esm/<%= pkgName %>.widget.js",
+  "system": "src/system/<%= pkgName %>.widget.js",
+  "scripts": {
+    "start": "web-dev-server"
+  },
+  "dependencies": {
+    "lit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@web-widget/container": "^0.0.8",
+    "@web/dev-server": "^0.1.25"
+  }
+}

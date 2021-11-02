@@ -1,6 +1,6 @@
 # \<scaffold-widget>
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This web widget follows the [@web-widget](https://web-widget.js.org/) recommendation.
 
 ## Installation
 
@@ -11,11 +11,11 @@ npm i scaffold-widget
 ## Usage
 
 ```html
-<script type="module">
-  import 'scaffold-widget/scaffold-widget.js';
-</script>
-
-<scaffold-widget></scaffold-widget>
+<web-widget src="https://cdn.jsdelivr.net/npm/scaffold-widget/dist/esm/scaffold-widget.js">
+  <span slot="title">
+    Hello World!
+  </span>
+</web-widget>
 ```
 
 ## Linting and formatting
@@ -63,7 +63,7 @@ npm run storybook:build
 
 ## Tooling configs
 
-For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
+For most of the tools, the configuration is in the `package.json` to minimize the amount of files in your project.
 
 If you customize the configuration a lot, you can consider moving them to individual files.
 

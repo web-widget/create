@@ -147,7 +147,7 @@ export const AppMixin = subclass =>
           message:'What is the tag name of your web widget?',
           validate: pkgName =>
             !/^([a-z])(?!.*[<>])(?=.*-).+$/.test(pkgName)
-              ? 'You need a minimum of two lowercase words separated by dashes (e.g. foo-bar)'
+              ? 'You need a minimum of two lowercase words separated by dashes (e.g. foo-widget)'
               : true,
         },
       ];

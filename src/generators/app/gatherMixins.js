@@ -1,4 +1,4 @@
-import { WcLitElementMixin, WcLitElementPackageMixin } from '../wc-lit-element/index.js';
+import { WcLitElementMixin, WcLitElementPackageMixin } from '../lit-element/index.js';
 import { LintingMixin } from '../linting/index.js';
 import { TestingMixin, TestingScaffoldMixin } from '../testing/index.js';
 import {
@@ -21,7 +21,7 @@ export function gatherMixins(options) {
   const mixins = [];
 
   if (options.type === 'scaffold') {
-    // if (options.typescript === 'true') {
+    if (options.typescript === 'true') {
     //   switch (options.scaffoldType) {
     //     case 'wc':
           mixins.push(TsWcLitElementPackageMixin);
@@ -45,7 +45,7 @@ export function gatherMixins(options) {
       //     break;
       //   // no default
       // }
-    // }
+    }
   }
 
   if (options.features && options.features.length > 0) {

@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
-import '../<%= pkgName %>.js';
+import '../src/<%= pkgName %>.js';
 
 describe('<%= className %>', () => {
   it('has a default title "Hey there" and counter 5', async () => {
@@ -16,12 +16,6 @@ describe('<%= className %>', () => {
     el.shadowRoot.querySelector('button').click();
 
     expect(el.counter).to.equal(6);
-  });
-
-  it('can override the title via attribute', async () => {
-    const el = await fixture(html`<<%= pkgName %> title="attribute title"></<%= pkgName %>>`);
-
-    expect(el.title).to.equal('attribute title');
   });
 
   it('passes the a11y audit', async () => {
