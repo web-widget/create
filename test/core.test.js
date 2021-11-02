@@ -291,12 +291,13 @@ describe('optionsToCommand', () => {
   it('converts real example', async () => {
     const options = {
       type: 'scaffold',
+      framework: 'lit',
       features: ['testing', 'demoing'],
       pkgName: 'foo-bar',
       installDependencies: 'false',
     };
     expect(optionsToCommand(options)).to.equal(
-      'npm init @open-wc --type scaffold --features testing demoing --pkgName foo-bar --installDependencies false ',
+      'npm init @open-wc --type scaffold --framework lit --features testing demoing --pkgName foo-bar --installDependencies false ',
     );
   });
 });

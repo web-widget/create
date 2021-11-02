@@ -1,0 +1,26 @@
+{
+  "source": "./dist/src/<%= pkgName %>.widget.js",
+  "main": "dist/cjs/<%= pkgName %>.widget.js",
+  "module": "dist/esm/<%= pkgName %>.widget.js",
+  "system": "dist/system/<%= pkgName %>.widget.js",
+  "unpkg": "dist/umd/<%= pkgName %>.widget.js",
+  "libraryName": "<%= className %>",
+  "exports": {
+    ".": "./dist/src/<%= pkgName %>.widget.js",
+    "./<%= pkgName %>.js": "./dist/src/<%= pkgName %>.js"
+  },
+  "scripts": {
+    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
+    "build": "tsc && <%= scriptRunCommand %> analyze -- --exclude dist",
+    "prepublish": "tsc && <%= scriptRunCommand %> analyze -- --exclude dist"
+  },
+  "dependencies": {
+    "lit": "^2.0.2"
+  },
+  "devDependencies": {
+    "@web/dev-server": "^0.1.25",
+    "concurrently": "^5.3.0",
+    "typescript": "^4.4.4",
+    "tslib": "^2.3.1"
+  }
+}

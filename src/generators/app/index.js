@@ -3,8 +3,8 @@ import prompts from 'prompts';
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import { executeMixinGenerator } from '../../core.js';
-import { AppLitElementMixin } from '../app-lit-element/index.js';
-import { TsAppLitElementMixin } from '../app-lit-element-ts/index.js';
+// import { AppLitElementMixin } from '../app-lit-element/index.js';
+// import { TsAppLitElementMixin } from '../app-lit-element-ts/index.js';
 
 import header from './header.js';
 import { gatherMixins } from './gatherMixins.js';
@@ -31,6 +31,13 @@ const optionDefinitions = [
     type: String,
   },
   {
+    name: 'framework',
+    description:
+      'Choose a framework',
+    typeLabel: '{underline lit}',
+    type: String,
+  },
+  {
     name: 'features',
     description:
       'Which features to include. {bold linting}, {bold testing}, {bold demoing}, or {bold building}',
@@ -38,15 +45,15 @@ const optionDefinitions = [
     typeLabel: '{underline linting|testing|demoing|building}',
     multiple: true,
   },
-  {
-    name: 'typescript',
-    description: 'Whether to use TypeScript in your project',
-    type: String,
-    typeLabel: '{underline true|false}',
-  },
+  // {
+  //   name: 'typescript',
+  //   description: 'Whether to use TypeScript in your project',
+  //   type: String,
+  //   typeLabel: '{underline true|false}',
+  // },
   {
     name: 'pkgName',
-    description: 'The tag name for the web component or app shell element',
+    description: 'The package name for the web widget',
     type: String,
     typeLabel: '{underline string}',
   },
@@ -119,6 +126,14 @@ export const AppMixin = subclass =>
           ],
         },
         {
+          type: 'select',
+          name: 'framework',
+          message: 'Would you like to use framework?',
+          choices: [
+            { title: 'Lit', value: 'lit' }
+          ],
+        },
+        {
           type: 'multiselect',
           name: 'features',
           message: 'What would you like to add?',
@@ -129,19 +144,19 @@ export const AppMixin = subclass =>
             { title: 'Building (rollup)', value: 'building' },
           ]
         },
-        {
-          type: 'select',
-          name: 'typescript',
-          message: 'Would you like to use typescript?',
-          choices: [
-            { title: 'No', value: 'false' },
-            { title: 'Yes', value: 'true' },
-          ],
-        },
+        // {
+        //   type: 'select',
+        //   name: 'typescript',
+        //   message: 'Would you like to use typescript?',
+        //   choices: [
+        //     { title: 'No', value: 'false' },
+        //     { title: 'Yes', value: 'true' },
+        //   ],
+        // },
         {
           type: (prev, all) => (all.pkgName ? null : 'text'),
           name: 'pkgName',
-          message:'What is the tag name of your web widget?',
+          message:'What is the package name of your web widget?',
           validate: pkgName =>
             !/^([a-z])(?!.*[<>])(?=.*-).+$/.test(pkgName)
               ? 'You need a minimum of two lowercase words separated by dashes (e.g. foo-widget)'

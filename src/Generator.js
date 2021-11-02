@@ -15,7 +15,7 @@ import {
 /**
  * Options for the generator
  * @typedef {object} GeneratorOptions
- * @property {string} [pkgName] the dash-case tag name
+ * @property {string} [pkgName] the dash-case pakcage name
  * @property {string} [destinationPath='auto'] path to output to. default value 'auto' will output to current working directory
  * @property {'scaffold'} [type='scaffold'] path to output to. default value 'auto' will output to current working directory
  * @property {'true'|'false'} [writeToDisk] whether to write to disk
@@ -24,7 +24,7 @@ import {
 
 /**
  * dash-case to PascalCase
- * @param  {string} pkgName dash-case tag name
+ * @param  {string} pkgName dash-case pakcage name
  * @return {string}         PascalCase class name
  */
 function getClassName(pkgName) {

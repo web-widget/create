@@ -1,5 +1,5 @@
 import { html } from 'lit';
-import '../scaffold-widget.js';
+import '../src/scaffold-widget.js';
 
 export default {
   title: 'ScaffoldWidget',

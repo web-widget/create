@@ -46,7 +46,7 @@
   "customElements": "custom-elements.json",
   "source": "src/scaffold-widget.widget.js",
   "system": "dist/system/scaffold-widget.widget.js",
-  "unpkg": "dist/system/scaffold-widget.widget.js",
+  "unpkg": "dist/umd/scaffold-widget.widget.js",
   "libraryName": "ScaffoldWidget",
   "eslintConfig": {
     "extends": [
