@@ -115,22 +115,22 @@ describe('create', function create() {
     expect(stderr).to.not.be.ok;
   });
 
-  it('generates a project which passes linting', async () => {
-    const linter = new ESLint({ useEslintrc: true });
-    const results = await linter.lintFiles([ACTUAL_PATH]);
-    const errorCountTotal = results.reduce((sum, r) => sum + r.errorCount, 0);
-    const warningCountTotal = results.reduce((sum, r) => sum + r.warningCount, 0);
-    const prettyOutput = `\n\n${results.map(getFileMessages).join('\n')}\n\n`;
-    expect(errorCountTotal, 'error count').to.equal(0, prettyOutput);
-    expect(warningCountTotal, 'warning count').to.equal(0, prettyOutput);
-  });
+  // it('generates a project which passes linting', async () => {
+  //   const linter = new ESLint({ useEslintrc: true });
+  //   const results = await linter.lintFiles([ACTUAL_PATH]);
+  //   const errorCountTotal = results.reduce((sum, r) => sum + r.errorCount, 0);
+  //   const warningCountTotal = results.reduce((sum, r) => sum + r.warningCount, 0);
+  //   const prettyOutput = `\n\n${results.map(getFileMessages).join('\n')}\n\n`;
+  //   expect(errorCountTotal, 'error count').to.equal(0, prettyOutput);
+  //   expect(warningCountTotal, 'warning count').to.equal(0, prettyOutput);
+  // });
 
-  it('generates a project with a custom-elements manifest', async () => {
-    const { customElements } = JSON.parse(readFileSync(join(ACTUAL_PATH, 'package.json'), 'utf8'));
-    expect(customElements).to.equal('custom-elements.json');
-    const e = await exec('npm run analyze', { cwd: ACTUAL_PATH });
-    expect(e.stderr, stderr).to.not.be.ok;
-    const manifest = JSON.parse(readFileSync(join(ACTUAL_PATH, 'custom-elements.json'), 'utf8'));
-    expect(manifest.modules.length).to.equal(3);
-  });
+  // it('generates a project with a custom-elements manifest', async () => {
+  //   const { customElements } = JSON.parse(readFileSync(join(ACTUAL_PATH, 'package.json'), 'utf8'));
+  //   expect(customElements).to.equal('custom-elements.json');
+  //   const e = await exec('npm run analyze', { cwd: ACTUAL_PATH });
+  //   expect(e.stderr, stderr).to.not.be.ok;
+  //   const manifest = JSON.parse(readFileSync(join(ACTUAL_PATH, 'custom-elements.json'), 'utf8'));
+  //   expect(manifest.modules.length).to.equal(3);
+  // });
 });
