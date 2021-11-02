@@ -1,22 +1,22 @@
 {
-  "name": "@open-wc/create",
-  "version": "0.38.55",
+  "name": "@web-widget/create",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public"
   },
-  "description": "Easily setup all the tools of Open Web Components.",
+  "description": "Easily setup all the tools of Web Widget Application.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/open-wc/create.git"
+    "url": "https://github.com/web-widget/create.git"
   },
   "bugs": {
-    "url": "https://github.com/open-wc/create/issues"
+    "url": "https://github.com/web-widget/create/issues"
   },
-  "author": "open-wc",
-  "homepage": "https://github.com/open-wc/create",
+  "author": "web-widget",
+  "homepage": "https://github.com/web-widget/create",
   "bin": {
-    "create-open-wc": "./dist/create.js"
+    "create-web-widget": "./dist/create.js"
   },
   "scripts": {
     "build": "rm -rf dist && babel src --out-dir dist --copy-files --include-dotfiles",
@@ -35,8 +35,7 @@
     "dist"
   ],
   "keywords": [
-    "open-wc",
-    "owc",
+    "web-widget",
     "generator",
     "starter-app"
   ],

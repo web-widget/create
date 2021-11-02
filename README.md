@@ -1,12 +1,12 @@
 ---
 permalink: 'init/index.html'
-title: Create Open Web Components
+title: Create Web Widget Application
 section: guides
 tags:
   - guides
 ---
 
-# Create Open Web Components
+# Create Web Widget Application
 
 Web component project scaffolding.
 
@@ -15,26 +15,20 @@ Web component project scaffolding.
 ## Usage
 
 ```bash
-npm init @open-wc
+npm init @web-widget/create
 ```
 
 <div class="custom-block warning"><p class="custom-block-title">WARNING</p> <p><code>npm init</code> requires node 14 &amp; npm 6 or higher</p></div>
 
 This will kickstart a menu guiding you through all available actions.
 
-    $ npm init @open-wc
+    $ npm init @web-widget/create
     npx: installed 14 in 4.074s
-            _.,,,,,,,,,._
-         .d''           ``b.       Open Web Components Recommendations
-       .p'      Open       `q.
-     .d'    Web Components  `b.    Start or upgrade your web component project with
-     .d'                     `b.   ease. All our recommendations at your fingertips.
-     ::   .................   ::
-     `p.                     .q'   See more details at https://open-wc.org/init/
-      `p.    open-wc.org    .q'
-       `b.     @openWc     .d'
-         `q..            ..,'      Note: you can exit any time with Ctrl+C or Esc
-            '',,,,,,,,,,''
+    ${chalk.underline('Web Widget Application Recommendations')}
+    Start or upgrade your web component project with ease.
+    All our recommendations at your fingertips.
+
+    See more details at https://web-widget.js.org/
 
 
     ? What would you like to do today? › - Use arrow-keys. Return to submit.
@@ -52,7 +46,6 @@ You may pass options to skip the CLI wizard in part or in whole.
 | `--destinationPath`     | path                                        | The path the generator will write files to                                                                                |     |
 | `--type`                | `scaffold`\|`upgrade`                       | Choose scaffold to create a new project or upgrade to add features to an existing project                                 |     |
 | `--features`            | `linting`\|`testing`\|`demoing`\|`building` | Which features to include. linting, testing, demoing, or building                                                         |     |
-| `--typescript`          | `true`\|`false`                             | Whether to use TypeScript in your project                                                                                 |     |
 | `--pkgName`             | string                                      | The tag name for the web component or app shell element                                                                   |     |
 | `--installDependencies` | `yarn`\|`npm`\|`false`                      | Whether to install dependencies. Choose npm or yarn to install with those package managers, or false to skip installation |     |
 | `--writeToDisk`         | `true`\|`false`                             | Whether or not to actually write the files to disk                                                                        |     |
@@ -66,19 +59,9 @@ They will create a new folder and set up everything you need to get started imme
 Example usage:
 
 ```bash
-npm init @open-wc
+npm init @web-widget/create
 # Select "Scaffold a new project"
 ```
-
-### Available scaffold generators:
-
-- `Web Component`<br/>
-  This generator scaffolds a starting point for a web component. We recommend using this generator when you want to develop and publish a single web component.
-  <br/>
-
-- `Application`<br/>
-  This generator scaffolds a new starter application. We recommend using this generator at the start of your web component project.
-  <br/>
 
 ## Features
 
@@ -89,7 +72,7 @@ Example usage:
 
 ```bash
 cd existing-web-component
-npm init @open-wc
+npm init @web-widget/create
 # select "Upgrade an existing project" or add features while scaffolding
 ```
 
