@@ -13,7 +13,7 @@ import { gatherMixins } from './gatherMixins.js';
  * Allows to control the data via command line
  *
  * example:
- * npm init @open-wc --type scaffold --scaffoldType app --pkgName foo-bar --installDependencies false
+ * npm init @open-wc --type scaffold --pkgName foo-bar --installDependencies false
  * npm init @open-wc --type upgrade --features linting demoing --pkgName foo-bar --installDependencies false
  */
 const optionDefinitions = [
@@ -29,13 +29,6 @@ const optionDefinitions = [
       'Choose {bold scaffold} to create a new project or {bold upgrade} to add features to an existing project',
     typeLabel: '{underline scaffold|upgrade}',
     type: String,
-  },
-  {
-    name: 'scaffoldType',
-    description:
-      'The type of project to scaffold. {bold wc} for a single published component, {bold app} for an application',
-    type: String,
-    typeLabel: '{underline wc|app}',
   },
   {
     name: 'features',
@@ -126,31 +119,18 @@ export const AppMixin = subclass =>
           ],
         },
         {
-          type: (prev, all) => (all.type === 'scaffold' ? 'select' : null),
-          name: 'scaffoldType',
-          message: 'What would you like to scaffold?',
-          choices: [
-            { title: 'Web Component', value: 'wc' },
-            { title: 'Application', value: 'app' },
-          ],
-        },
-        {
-          type: (prev, all) =>
-            all.scaffoldType === 'wc' || all.scaffoldType === 'app' || all.type === 'upgrade'
-              ? 'multiselect'
-              : null,
+          type: 'multiselect',
           name: 'features',
           message: 'What would you like to add?',
-          choices: (prev, all) =>
-            [
-              { title: 'Linting (eslint & prettier)', value: 'linting' },
-              { title: 'Testing (web-test-runner)', value: 'testing' },
-              { title: 'Demoing (storybook)', value: 'demoing' },
-              all.scaffoldType !== 'wc' && {
-                title: 'Building (rollup)',
-                value: 'building',
-              },
-            ].filter(_ => !!_),
+          choices: [
+            { title: 'Linting (eslint & prettier)', value: 'linting' },
+            { title: 'Testing (web-test-runner)', value: 'testing' },
+            { title: 'Demoing (storybook)', value: 'demoing' },
+            // all.scaffoldType !== 'wc' && {
+            //   title: 'Building (rollup)',
+            //   value: 'building',
+            // },
+          ]
         },
         {
           type: 'select',
@@ -164,10 +144,7 @@ export const AppMixin = subclass =>
         {
           type: (prev, all) => (all.pkgName ? null : 'text'),
           name: 'pkgName',
-          message: (prev, all) =>
-            `What is the tag name of your ${
-              all.scaffoldType === 'app' ? 'app shell element' : 'web component'
-            }?`,
+          message:'What is the tag name of your web widget?',
           validate: pkgName =>
             !/^([a-z])(?!.*[<>])(?=.*-).+$/.test(pkgName)
               ? 'You need a minimum of two lowercase words separated by dashes (e.g. foo-bar)'
@@ -178,7 +155,6 @@ export const AppMixin = subclass =>
       /**
        * {
        *   type: 'scaffold',
-       *   scaffoldType: 'wc',
        *   features: [ 'testing', 'building' ],
        *   pkgName: 'foo-bar',
        *   installDependencies: 'false'
@@ -197,13 +173,13 @@ export const AppMixin = subclass =>
 
       const mixins = gatherMixins(this.options);
       // app is separate to prevent circular imports
-      if (this.options.type === 'scaffold' && this.options.scaffoldType === 'app') {
-        if (this.options.typescript === 'true') {
-          mixins.push(TsAppLitElementMixin);
-        } else {
-          mixins.push(AppLitElementMixin);
-        }
-      }
+      // if (this.options.type === 'scaffold' && this.options.scaffoldType === 'app') {
+      //   if (this.options.typescript === 'true') {
+      //     mixins.push(TsAppLitElementMixin);
+      //   } else {
+      //     mixins.push(AppLitElementMixin);
+      //   }
+      // }
       await executeMixinGenerator(mixins, this.options);
     }
   };

@@ -51,7 +51,6 @@ You may pass options to skip the CLI wizard in part or in whole.
 | ----------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | --- |
 | `--destinationPath`     | path                                        | The path the generator will write files to                                                                                |     |
 | `--type`                | `scaffold`\|`upgrade`                       | Choose scaffold to create a new project or upgrade to add features to an existing project                                 |     |
-| `--scaffoldType`        | `wc`\|`app`                                 | The type of project to scaffold. wc for a single published component, app for an application                              |     |
 | `--features`            | `linting`\|`testing`\|`demoing`\|`building` | Which features to include. linting, testing, demoing, or building                                                         |     |
 | `--typescript`          | `true`\|`false`                             | Whether to use TypeScript in your project                                                                                 |     |
 | `--pkgName`             | string                                      | The tag name for the web component or app shell element                                                                   |     |

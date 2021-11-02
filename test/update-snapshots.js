@@ -14,9 +14,9 @@ execSync(UPDATE_SNAPSHOTS_COMMAND);
 
 // HACK(bennyp): destinationPath doesn't work.
 // see https://github.com/open-wc/open-wc/issues/1040
-const OOPS_I_WROTE_TO_PACKAGE_ROOT = join(process.cwd(), './scaffold-app');
+const OOPS_I_WROTE_TO_PACKAGE_ROOT = join(process.cwd(), './scaffold-widget');
 
-const DESTINATION_PATH = join(__dirname, './snapshots/fully-loaded-app');
+const DESTINATION_PATH = join(__dirname, './snapshots/fully-loaded-widget');
 
 if (existsSync(OOPS_I_WROTE_TO_PACKAGE_ROOT)) {
   execSync(`rm -rf ${DESTINATION_PATH}`);

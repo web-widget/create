@@ -21,31 +21,31 @@ export function gatherMixins(options) {
   const mixins = [];
 
   if (options.type === 'scaffold') {
-    if (options.typescript === 'true') {
-      switch (options.scaffoldType) {
-        case 'wc':
+    // if (options.typescript === 'true') {
+    //   switch (options.scaffoldType) {
+    //     case 'wc':
           mixins.push(TsWcLitElementPackageMixin);
           considerScaffoldFilesFor = true;
-          break;
-        case 'wc-lit-element':
-          mixins.push(TsWcLitElementMixin);
-          considerScaffoldFilesFor = true;
-          break;
-        // no default
-      }
+      //     break;
+      //   case 'wc-lit-element':
+      //     mixins.push(TsWcLitElementMixin);
+      //     considerScaffoldFilesFor = true;
+      //     break;
+      //   // no default
+      // }
     } else {
-      switch (options.scaffoldType) {
-        case 'wc':
+      // switch (options.scaffoldType) {
+      //   case 'wc':
           mixins.push(WcLitElementPackageMixin);
           considerScaffoldFilesFor = true;
-          break;
-        case 'wc-lit-element':
-          mixins.push(WcLitElementMixin);
-          considerScaffoldFilesFor = true;
-          break;
-        // no default
-      }
-    }
+      //   break;
+      //   case 'wc-lit-element':
+      //     mixins.push(WcLitElementMixin);
+      //     considerScaffoldFilesFor = true;
+      //     break;
+      //   // no default
+      // }
+    // }
   }
 
   if (options.features && options.features.length > 0) {

@@ -29,7 +29,7 @@ const getFileMessages = ({ messages, filePath }) =>
         .join('\n\n')
         .trimEnd();
 
-const ACTUAL_PATH = join(process.cwd(), './scaffold-app');
+const ACTUAL_PATH = join(process.cwd(), './scaffold-widget');
 
 /**
  * Deletes the test files
@@ -44,7 +44,7 @@ async function deleteGenerated() {
  * @return {string}        cleaned output
  */
 function stripUserDir(output) {
-  return output.replace(/\b(.*)\/scaffold-app/, '/scaffold-app');
+  return output.replace(/\b(.*)\/scaffold-widget/, '/scaffold-widget');
 }
 
 /**
@@ -79,7 +79,7 @@ let EXPECTED_OUTPUT;
 const generate = ({ command, expectedPath }) =>
   async function generateTestProject() {
     ({ stdout, stderr } = await exec(command));
-    const EXPECTED_PATH = join(expectedPath, '../fully-loaded-app.output.txt');
+    const EXPECTED_PATH = join(expectedPath, '../fully-loaded-widget.output.txt');
     EXPECTED_OUTPUT = readFileSync(EXPECTED_PATH, 'utf-8');
   };
 
@@ -89,7 +89,7 @@ describe('create', function create() {
   // For some reason, this doesn't do anything
   const destinationPath = join(__dirname, './output');
 
-  const expectedPath = join(__dirname, './snapshots/fully-loaded-app');
+  const expectedPath = join(__dirname, './snapshots/fully-loaded-widget');
 
   const command = generateCommand({ destinationPath });
 
