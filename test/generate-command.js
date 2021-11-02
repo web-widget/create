@@ -6,7 +6,7 @@ export function generateCommand({ destinationPath = '.' } = {}) {
   return `node -r @babel/register ${COMMAND_PATH} \
       --destinationPath ${destinationPath} \
       --type scaffold \
-      --features linting testing demoing \
+      --features linting testing demoing building \
       --typescript false \
       --pkgName scaffold-widget \
       --writeToDisk true \

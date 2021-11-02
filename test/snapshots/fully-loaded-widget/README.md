@@ -60,6 +60,14 @@ To build a production version of Storybook, run
 npm run storybook:build
 ```
 
+## Building with Rollup
+
+Builds your app and outputs it in your `dist` directory:
+
+```bash
+npm run build
+```
+
 
 ## Tooling configs
 

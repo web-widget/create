@@ -126,10 +126,7 @@ export const AppMixin = subclass =>
             { title: 'Linting (eslint & prettier)', value: 'linting' },
             { title: 'Testing (web-test-runner)', value: 'testing' },
             { title: 'Demoing (storybook)', value: 'demoing' },
-            // all.scaffoldType !== 'wc' && {
-            //   title: 'Building (rollup)',
-            //   value: 'building',
-            // },
+            { title: 'Building (rollup)', value: 'building' },
           ]
         },
         {
