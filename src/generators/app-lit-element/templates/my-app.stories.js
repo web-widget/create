@@ -1,9 +1,9 @@
 import { html } from 'lit';
-import '../src/<%= tagName %>.js';
+import '../src/<%= pkgName %>.js';
 
 export default {
   title: '<%= className %>',
-  component: '<%= tagName %>',
+  component: '<%= pkgName %>',
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -11,11 +11,11 @@ export default {
 
 function Template({ title, backgroundColor }) {
   return html`
-    <<%= tagName %>
-      style="--<%= tagName %>-background-color: ${backgroundColor || 'white'}"
+    <<%= pkgName %>
+      style="--<%= pkgName %>-background-color: ${backgroundColor || 'white'}"
       .title=${title}
     >
-    </<%= tagName %>>
+    </<%= pkgName %>>
   `;
 }
 

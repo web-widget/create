@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background: #fafafa;
+    }
+  </style>
+</head>
+<body>
+  <web-widget src="../src/<%= pkgName %>.widget.js">
+    <span slot="title">
+      Hello World!
+    </span>
+  </web-widget>
+
+  <script type="module">
+    import '@web-widget/container';
+  </script>
+</body>
+</html>

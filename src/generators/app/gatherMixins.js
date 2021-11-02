@@ -1,4 +1,4 @@
-import { WcLitElementMixin, WcLitElementPackageMixin } from '../wc-lit-element/index.js';
+import { WcLitElementMixin, WcLitElementPackageMixin } from '../lit-element/index.js';
 import { LintingMixin } from '../linting/index.js';
 import { TestingMixin, TestingScaffoldMixin } from '../testing/index.js';
 import {
@@ -22,29 +22,29 @@ export function gatherMixins(options) {
 
   if (options.type === 'scaffold') {
     if (options.typescript === 'true') {
-      switch (options.scaffoldType) {
-        case 'wc':
+    //   switch (options.scaffoldType) {
+    //     case 'wc':
           mixins.push(TsWcLitElementPackageMixin);
           considerScaffoldFilesFor = true;
-          break;
-        case 'wc-lit-element':
-          mixins.push(TsWcLitElementMixin);
-          considerScaffoldFilesFor = true;
-          break;
-        // no default
-      }
+      //     break;
+      //   case 'wc-lit-element':
+      //     mixins.push(TsWcLitElementMixin);
+      //     considerScaffoldFilesFor = true;
+      //     break;
+      //   // no default
+      // }
     } else {
-      switch (options.scaffoldType) {
-        case 'wc':
+      // switch (options.scaffoldType) {
+      //   case 'wc':
           mixins.push(WcLitElementPackageMixin);
           considerScaffoldFilesFor = true;
-          break;
-        case 'wc-lit-element':
-          mixins.push(WcLitElementMixin);
-          considerScaffoldFilesFor = true;
-          break;
-        // no default
-      }
+      //   break;
+      //   case 'wc-lit-element':
+      //     mixins.push(WcLitElementMixin);
+      //     considerScaffoldFilesFor = true;
+      //     break;
+      //   // no default
+      // }
     }
   }
 

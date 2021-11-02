@@ -15,7 +15,7 @@ import {
 /**
  * Options for the generator
  * @typedef {object} GeneratorOptions
- * @property {string} [tagName] the dash-case tag name
+ * @property {string} [pkgName] the dash-case pakcage name
  * @property {string} [destinationPath='auto'] path to output to. default value 'auto' will output to current working directory
  * @property {'scaffold'} [type='scaffold'] path to output to. default value 'auto' will output to current working directory
  * @property {'true'|'false'} [writeToDisk] whether to write to disk
@@ -24,11 +24,11 @@ import {
 
 /**
  * dash-case to PascalCase
- * @param  {string} tagName dash-case tag name
+ * @param  {string} pkgName dash-case pakcage name
  * @return {string}         PascalCase class name
  */
-function getClassName(tagName) {
-  return tagName
+function getClassName(pkgName) {
+  return pkgName
     .split('-')
     .reduce((previous, part) => previous + part.charAt(0).toUpperCase() + part.slice(1), '');
 }
@@ -49,15 +49,15 @@ class Generator {
   }
 
   execute() {
-    if (this.options.tagName) {
-      const { tagName } = this.options;
-      const className = getClassName(tagName);
-      this.templateData = { ...this.templateData, tagName, className };
+    if (this.options.pkgName) {
+      const { pkgName } = this.options;
+      const className = getClassName(pkgName);
+      this.templateData = { ...this.templateData, pkgName, className };
 
       if (this.options.destinationPath === 'auto') {
         this.options.destinationPath = process.cwd();
         if (this.options.type === 'scaffold') {
-          this.options.destinationPath = path.join(process.cwd(), tagName);
+          this.options.destinationPath = path.join(process.cwd(), pkgName);
         }
       }
     }

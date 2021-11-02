@@ -18,10 +18,10 @@ export const TsTestingScaffoldMixin = subclass =>
     async execute() {
       await super.execute();
 
-      const { tagName } = this.templateData;
+      const { pkgName } = this.templateData;
       this.copyTemplate(
         `${__dirname}/templates/my-el.test.ts`,
-        this.destinationPath(`test/${tagName}.test.ts`),
+        this.destinationPath(`test/${pkgName}.test.ts`),
       );
     }
   };

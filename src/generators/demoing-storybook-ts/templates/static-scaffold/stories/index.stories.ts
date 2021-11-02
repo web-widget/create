@@ -1,9 +1,9 @@
 import { html, TemplateResult } from 'lit';
-import '../src/<%= tagName %>.js';
+import '../src/<%= pkgName %>.js';
 
 export default {
   title: '<%= className %>',
-  component: '<%= tagName %>',
+  component: '<%= pkgName %>',
   argTypes: {
     title: { control: 'text' },
     counter: { control: 'number' },
@@ -30,13 +30,13 @@ const Template: Story<ArgTypes> = ({
   textColor,
   slot,
 }: ArgTypes) => html`
-  <<%= tagName %>
-    style="--<%= tagName %>-text-color: ${textColor || 'black'}"
+  <<%= pkgName %>
+    style="--<%= pkgName %>-text-color: ${textColor || 'black'}"
     .title=${title}
     .counter=${counter}
   >
     ${slot}
-  </<%= tagName %>>
+  </<%= pkgName %>>
 `;
 
 export const Regular = Template.bind({});

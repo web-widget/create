@@ -1,9 +1,9 @@
 import { html, TemplateResult } from 'lit';
-import '../src/<%= tagName %>.js';
+import '../src/<%= pkgName %>.js';
 
 export default {
   title: '<%= className %>',
-  component: '<%= tagName %>',
+  component: '<%= pkgName %>',
   argTypes: {
     backgroundColor: { control: 'color' },
   },
@@ -21,7 +21,7 @@ interface ArgTypes {
 }
 
 const Template: Story<ArgTypes> = ({ title, backgroundColor = 'white' }: ArgTypes) => html`
-  <<%= tagName %> style="--<%= tagName %>-background-color: ${backgroundColor}" .title=${title}></<%= tagName %>>
+  <<%= pkgName %> style="--<%= pkgName %>-background-color: ${backgroundColor}" .title=${title}></<%= pkgName %>>
 `;
 
 export const App = Template.bind({});

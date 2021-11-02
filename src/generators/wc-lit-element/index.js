@@ -31,7 +31,7 @@ export const WcLitElementMixin = subclass =>
       this.templateData.featureReadmes = safeFeatureReadme(this.options.features);
 
       await super.execute();
-      const { tagName, className } = this.templateData;
+      const { pkgName, className } = this.templateData;
 
       // write & rename el class template
       this.copyTemplate(
@@ -40,7 +40,7 @@ export const WcLitElementMixin = subclass =>
       );
 
       // write & rename el registration template
-      this.copyTemplate(`${__dirname}/templates/my-el.js`, this.destinationPath(`${tagName}.js`));
+      this.copyTemplate(`${__dirname}/templates/my-el.js`, this.destinationPath(`${pkgName}.js`));
 
       await this.copyTemplates(`${__dirname}/templates/static/**/*`);
     }
@@ -67,7 +67,7 @@ export const WcLitElementPackageMixin = subclass =>
       console.log('You are all set up now!');
       console.log('');
       console.log('All you need to do is run:');
-      console.log(`  cd ${this.templateData.tagName}`);
+      console.log(`  cd ${this.templateData.pkgName}`);
       console.log('  npm run start');
       console.log('');
     }

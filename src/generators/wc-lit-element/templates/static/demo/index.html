@@ -13,14 +13,14 @@
 
   <script type="module">
     import { html, render } from 'lit';
-    import '../<%= tagName %>.js';
+    import '../<%= pkgName %>.js';
 
-    const title = 'Hello owc World!';
+    const title = 'Hello World!';
     render(
       html`
-        <<%= tagName %> .title=${title}>
+        <<%= pkgName %> .title=${title}>
           some light-dom
-        </<%= tagName %>>
+        </<%= pkgName %>>
       `,
       document.querySelector('#demo')
     );

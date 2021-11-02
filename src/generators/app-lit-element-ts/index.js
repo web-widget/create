@@ -6,12 +6,12 @@ export const TsAppLitElementMixin = subclass =>
     async execute() {
       await super.execute();
 
-      const { tagName, className } = this.templateData;
+      const { pkgName, className } = this.templateData;
 
       // write & rename el class template
       this.copyTemplate(
         `${__dirname}/templates/my-app.ts`,
-        this.destinationPath(`src//${tagName}.ts`),
+        this.destinationPath(`src//${pkgName}.ts`),
       );
 
       this.copyTemplate(
@@ -52,7 +52,7 @@ export const TsAppLitElementMixin = subclass =>
       if (this.options._scaffoldFilesFor && this.options._scaffoldFilesFor.includes('demoing')) {
         this.copyTemplate(
           `${__dirname}/templates/my-app.stories.ts`,
-          this.destinationPath(`./stories/${tagName}.stories.ts`),
+          this.destinationPath(`./stories/${pkgName}.stories.ts`),
         );
 
         await this.copyTemplates(`${__dirname}/templates/static-scaffold-demoing/**/*`);
@@ -61,7 +61,7 @@ export const TsAppLitElementMixin = subclass =>
       if (this.options._scaffoldFilesFor && this.options._scaffoldFilesFor.includes('testing')) {
         this.copyTemplate(
           `${__dirname}/templates/my-app.test.ts`,
-          this.destinationPath(`./test/${tagName}.test.ts`),
+          this.destinationPath(`./test/${pkgName}.test.ts`),
         );
 
         await this.copyTemplates(`${__dirname}/templates/static-scaffold-testing/**/*`);
@@ -74,7 +74,7 @@ export const TsAppLitElementMixin = subclass =>
       console.log('You are all set up now!');
       console.log('');
       console.log('All you need to do is run:');
-      console.log(`  cd ${this.templateData.tagName}`);
+      console.log(`  cd ${this.templateData.pkgName}`);
       console.log('  npm run start');
       console.log('');
     }
